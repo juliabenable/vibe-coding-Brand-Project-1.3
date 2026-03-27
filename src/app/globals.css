@@ -1,0 +1,303 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+}
+
+/* ════════════════════════════════════════════
+   ROOT — Benable Brand (shared by all themes)
+   ════════════════════════════════════════════ */
+:root {
+  --radius: 0.75rem;
+
+  /* ═══ Benable Brand — Vibrant Purple (NEVER changes per-theme) ═══ */
+  --brand-0: #FAF8FF;
+  --brand-100: #F0EBFF;
+  --brand-200: #E0D5FF;
+  --brand-300: #C9B8F8;
+  --brand-400: #A78BFA;
+  --brand-500: #8B5CF6;
+  --brand-600: #7C3AED;
+  --brand-700: #6D28D9;
+  --brand-800: #5B21B6;
+  --brand-900: #4C1D95;
+
+  /* ═══ Neutrals ═══ */
+  --neutral-0: #FFFFFF;
+  --neutral-50: #FAFAFB;
+  --neutral-100: #F4F4F6;
+  --neutral-200: #E8E8ED;
+  --neutral-300: #D1D1DB;
+  --neutral-400: #A1A1AA;
+  --neutral-500: #71717A;
+  --neutral-600: #52525B;
+  --neutral-700: #3F3F46;
+  --neutral-800: #18181B;
+
+  /* ═══ Semantic Colours ═══ */
+  --green-100: #ECFDF5;
+  --green-300: #6EE7B7;
+  --green-500: #10B981;
+  --green-600: #059669;
+  --green-700: #047857;
+  --red-100: #FFF1F2;
+  --red-300: #FDA4AF;
+  --red-500: #F43F5E;
+  --red-700: #BE123C;
+  --blue-100: #EFF6FF;
+  --blue-300: #93C5FD;
+  --blue-500: #3B82F6;
+  --blue-700: #1D4ED8;
+  --orange-100: #FFF7ED;
+  --orange-300: #FDBA74;
+  --orange-500: #F97316;
+  --orange-700: #C2410C;
+  --pink-100: #FDF2F8;
+  --pink-300: #F9A8D4;
+  --pink-500: #EC4899;
+  --pink-700: #BE185D;
+  --yellow-100: #FEFCE8;
+  --yellow-300: #FDE047;
+  --yellow-500: #EAB308;
+
+  /* ═══ shadcn/ui tokens — Benable ═══ */
+  --background: #FAFAFB;
+  --foreground: #18181B;
+  --card: #FFFFFF;
+  --card-foreground: #18181B;
+  --popover: #FFFFFF;
+  --popover-foreground: #18181B;
+  --primary: #7C3AED;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F0EBFF;
+  --secondary-foreground: #4C1D95;
+  --muted: #F4F4F6;
+  --muted-foreground: #71717A;
+  --accent: #E0D5FF;
+  --accent-foreground: #4C1D95;
+  --destructive: #F43F5E;
+  --border: #E8E8ED;
+  --input: #E8E8ED;
+  --ring: #7C3AED;
+
+  --chart-1: #7C3AED;
+  --chart-2: #10B981;
+  --chart-3: #3B82F6;
+  --chart-4: #F97316;
+  --chart-5: #F43F5E;
+
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #18181B;
+  --sidebar-primary: #7C3AED;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #F0EBFF;
+  --sidebar-accent-foreground: #4C1D95;
+  --sidebar-border: #E8E8ED;
+  --sidebar-ring: #7C3AED;
+
+  /* ═══ Typography Personality ═══ */
+  --font-heading: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --heading-weight: 700;
+  --heading-letter-spacing: -0.01em;
+  --heading-line-height: 1.2;
+  --heading-transform: none;
+  --body-letter-spacing: 0em;
+  --body-line-height: 1.6;
+  --label-transform: uppercase;
+  --label-letter-spacing: 0.05em;
+
+  /* ═══ Spacing & Density ═══ */
+  --card-padding: 1.5rem;
+  --card-gap: 1.5rem;
+  --section-gap: 2rem;
+
+  /* ═══ Component Treatments ═══ */
+  --card-border-width: 1px;
+  --card-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  --button-font-weight: 600;
+  --button-letter-spacing: 0em;
+  --button-transform: none;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  }
+}
+
+/* ═══ Theme-Aware Global Typography ═══ */
+[data-theme] body {
+  font-family: var(--font-body);
+  letter-spacing: var(--body-letter-spacing);
+  line-height: var(--body-line-height);
+}
+
+[data-theme] h1,
+[data-theme] h2,
+[data-theme] h3,
+[data-theme] h4 {
+  font-family: var(--font-heading);
+  font-weight: var(--heading-weight);
+  letter-spacing: var(--heading-letter-spacing);
+  line-height: var(--heading-line-height);
+  text-transform: var(--heading-transform);
+}
+
+/* Cards — themed */
+[data-theme] [data-slot="card"] {
+  box-shadow: var(--card-shadow);
+  border-width: var(--card-border-width);
+}
+
+/* Buttons — themed typography */
+[data-theme] [data-slot="button"] {
+  font-weight: var(--button-font-weight);
+  letter-spacing: var(--button-letter-spacing);
+  text-transform: var(--button-transform);
+}
+
+/* Section spacing */
+[data-theme] .space-y-8 > * + * {
+  margin-top: var(--section-gap);
+}
+
+/* ═══ Benable Utility Classes ═══ */
+.shadow-light-top {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 24px rgba(124,58,237,0.06);
+}
+.shadow-light-bottom {
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.06);
+}
+.shadow-medium-top {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.04), 0 16px 40px rgba(124,58,237,0.10);
+}
+.shadow-dark-top {
+  box-shadow: 0 8px 50px rgba(0,0,0,0.16);
+}
+.shadow-brand-glow {
+  box-shadow: 0 0 0 4px rgba(124,58,237,0.12), 0 8px 30px rgba(124,58,237,0.15);
+}
+
+/* ═══ Gradient backgrounds ═══ */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 50%, #C4B5FD 100%);
+}
+.bg-gradient-warm {
+  background: linear-gradient(135deg, #7C3AED 0%, #EC4899 100%);
+}
+.bg-gradient-cool {
+  background: linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%);
+}
+.bg-gradient-success {
+  background: linear-gradient(135deg, #10B981 0%, #6EE7B7 100%);
+}
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #FAF8FF 0%, #F0EBFF 30%, #E0D5FF 100%);
+}
+.bg-gradient-sidebar {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FAF8FF 100%);
+}
+
+/* ═══ Animated elements ═══ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+@keyframes pulse-brand {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(124,58,237,0.3); }
+  50% { box-shadow: 0 0 0 12px rgba(124,58,237,0); }
+}
+.animate-float { animation: float 3s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(124,58,237,0.08), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 2s ease-in-out infinite;
+}
+.animate-pulse-brand { animation: pulse-brand 2s ease-in-out infinite; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scale-in {
+  from { opacity: 0; transform: scale(0.92); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.animate-fade-in-up { animation: fade-in-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-scale-in { animation: scale-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
+.animate-slide-in-right { animation: slide-in-right 0.4s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.animate-gradient-shift { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
+
+.hover-lift {
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(124,58,237,0.1), 0 4px 10px rgba(0,0,0,0.05);
+}
+.hover-glow { transition: box-shadow 0.3s ease; }
+.hover-glow:hover {
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.12), 0 8px 30px rgba(124,58,237,0.1);
+}
+
+
