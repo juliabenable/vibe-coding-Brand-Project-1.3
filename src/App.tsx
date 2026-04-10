@@ -11,6 +11,9 @@ import CreateCampaignV1 from "@/pages/campaigns/CreateCampaignV1";
 import CreateCampaignV2 from "@/pages/campaigns/CreateCampaignV2";
 import CreateCampaignV3 from "@/pages/campaigns/CreateCampaignV3";
 import Creators from "@/pages/Creators";
+import Content from "@/pages/Content";
+import ContentV2 from "@/pages/ContentV2";
+import ContentV3 from "@/pages/ContentV3";
 import Messages from "@/pages/Messages";
 import BrandSettings from "@/pages/BrandSettings";
 import UpgradePlan from "@/pages/UpgradePlan";
@@ -31,6 +34,9 @@ export default function App() {
             <Route path="/campaigns/:id" element={<CampaignDetail />} />
             <Route path="/campaigns/:id/find-talent" element={<CampaignFindTalent />} />
             <Route path="/creators" element={<Creators />} />
+            <Route path="/content" element={<Content />} />
+            <Route path="/content/v2" element={<ContentV2 />} />
+            <Route path="/content/v3" element={<ContentV3 />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/settings" element={<BrandSettings />} />
             <Route path="/upgrade" element={<UpgradePlan />} />

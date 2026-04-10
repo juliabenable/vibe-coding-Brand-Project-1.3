@@ -19,6 +19,7 @@ import {
   Settings,
   Bell,
   TrendingUp,
+  Images,
 } from "lucide-react";
 
 const NAV_ITEMS = [
@@ -40,6 +41,13 @@ const NAV_ITEMS = [
     label: "Active Campaigns",
     path: "/campaigns",
     icon: ListChecks,
+    color: "var(--brand-600)",
+    bgColor: "var(--brand-100)",
+  },
+  {
+    label: "Content",
+    path: "/content",
+    icon: Images,
     color: "var(--brand-600)",
     bgColor: "var(--brand-100)",
   },
