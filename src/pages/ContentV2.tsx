@@ -443,6 +443,7 @@ function ShareButton({
 function VersionSwitcher() {
   const location = useLocation();
   const versions: { path: string; label: string }[] = [
+    { path: "/content/mvp", label: "MVP" },
     { path: "/content", label: "Grid" },
     { path: "/content/v2", label: "Masonry" },
     { path: "/content/v3", label: "By Creator" },

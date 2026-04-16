@@ -14,15 +14,23 @@ import Creators from "@/pages/Creators";
 import Content from "@/pages/Content";
 import ContentV2 from "@/pages/ContentV2";
 import ContentV3 from "@/pages/ContentV3";
+import ContentMVP from "@/pages/ContentMVP";
 import Messages from "@/pages/Messages";
 import BrandSettings from "@/pages/BrandSettings";
 import UpgradePlan from "@/pages/UpgradePlan";
+import ProductionLayout from "@/layouts/ProductionLayout";
+import ProductionCampaignDetail from "@/pages/ProductionCampaignDetail";
 
 export default function App() {
   return (
     <ThemeProvider>
       <HashRouter>
         <Routes>
+          {/* Production-matching layout */}
+          <Route element={<ProductionLayout />}>
+            <Route path="/app" element={<ProductionCampaignDetail />} />
+          </Route>
+
           <Route element={<BrandPortalLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/campaigns" element={<CampaignsList />} />
@@ -37,6 +45,7 @@ export default function App() {
             <Route path="/content" element={<Content />} />
             <Route path="/content/v2" element={<ContentV2 />} />
             <Route path="/content/v3" element={<ContentV3 />} />
+            <Route path="/content/mvp" element={<ContentMVP />} />
             <Route path="/messages" element={<Messages />} />
             <Route path="/settings" element={<BrandSettings />} />
             <Route path="/upgrade" element={<UpgradePlan />} />

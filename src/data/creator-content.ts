@@ -16,6 +16,8 @@ export interface CreatorPost {
   thumbnailUrl: string;
   caption: string;
   postedAt: string; // ISO date string
+  /** URL to the original post on Instagram / TikTok */
+  postUrl: string;
   creator: {
     name: string;
     handle: string;
@@ -41,6 +43,13 @@ function plus90(iso: string): string {
   return d.toISOString();
 }
 
+function postUrlFor(type: ContentType, id: string, handle: string): string {
+  const slug = id.replace("cp-", "");
+  if (type === "tiktok") return `https://www.tiktok.com/${handle}/video/7350000000000${slug}`;
+  if (type === "instagram_story") return `https://www.instagram.com/stories/${handle.replace("@", "")}/${slug}`;
+  return `https://www.instagram.com/reel/C${slug}xYz${slug}Abc/`;
+}
+
 type Seed = Omit<CreatorPost, "rightsExpireAt">;
 
 const SEED: Seed[] = [
@@ -58,6 +67,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=47",
     },
     campaignName: "PIKORA Spring Launch — Cocoa",
+    postUrl: postUrlFor("instagram_reel", "cp-01", "@mayaeats"),
     isInitiallyNew: true,
   },
   {
@@ -74,6 +84,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=12",
     },
     campaignName: "PIKORA Gut Reset Challenge",
+    postUrl: postUrlFor("tiktok", "cp-02", "@jordanfit"),
     isInitiallyNew: true,
   },
   {
@@ -90,6 +101,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=32",
     },
     campaignName: "PIKORA Wellness Mornings",
+    postUrl: postUrlFor("instagram_story", "cp-03", "@priyaslowliving"),
     isInitiallyNew: true,
   },
   {
@@ -106,6 +118,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=5",
     },
     campaignName: "PIKORA Kitchen Staples",
+    postUrl: postUrlFor("instagram_post", "cp-04", "@lenacooks"),
   },
   {
     id: "cp-05",
@@ -121,6 +134,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=15",
     },
     campaignName: "PIKORA Gut Reset Challenge",
+    postUrl: postUrlFor("tiktok", "cp-05", "@theomoves"),
   },
   {
     id: "cp-06",
@@ -136,6 +150,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=23",
     },
     campaignName: "PIKORA Spring Launch — Cocoa",
+    postUrl: postUrlFor("instagram_reel", "cp-06", "@harperhome"),
   },
   {
     id: "cp-07",
@@ -151,6 +166,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=48",
     },
     campaignName: "PIKORA Wellness Mornings",
+    postUrl: postUrlFor("instagram_post", "cp-07", "@sofiawellness"),
   },
   {
     id: "cp-08",
@@ -166,6 +182,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=9",
     },
     campaignName: "PIKORA Kitchen Staples",
+    postUrl: postUrlFor("tiktok", "cp-08", "@ameliatries"),
   },
   {
     id: "cp-09",
@@ -181,6 +198,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=36",
     },
     campaignName: "PIKORA Wellness Mornings",
+    postUrl: postUrlFor("instagram_story", "cp-09", "@noorlifestyle"),
   },
   {
     id: "cp-10",
@@ -196,6 +214,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=60",
     },
     campaignName: "PIKORA Kitchen Staples",
+    postUrl: postUrlFor("instagram_reel", "cp-10", "@gabecooks"),
   },
   {
     id: "cp-11",
@@ -211,12 +230,13 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=26",
     },
     campaignName: "PIKORA Gut Reset Challenge",
+    postUrl: postUrlFor("instagram_post", "cp-11", "@isabelglow"),
   },
   {
     id: "cp-12",
     type: "tiktok",
     thumbnailUrl:
-      "https://images.unsplash.com/photo-1482049016688-2d3e1b311543?w=800&h=1200&fit=crop",
+      "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=800&h=1200&fit=crop",
     caption:
       "Bone broth latte?? Hear me out. Cocoa @drinkpikora + oat milk + a dash of cinnamon = my new afternoon thing. Trust me. #PIKORA #recipehack",
     postedAt: daysAgo(21),
@@ -226,6 +246,7 @@ const SEED: Seed[] = [
       avatarUrl: "https://i.pravatar.cc/150?img=54",
     },
     campaignName: "PIKORA Spring Launch — Cocoa",
+    postUrl: postUrlFor("tiktok", "cp-12", "@quinneats"),
   },
 ];
 
